@@ -33,8 +33,8 @@ def CheckTimeCall(time, name):
         print(f"El total de los 5 primeros minutos son {cash_min} y el valor de tiempo añadido ({subtraction}) es de {cash_max}")
         print(f"El total a pagar es de { cash_max + cash_min}")
     else:
-        cash_min = max_time * 0.25
+        cash_min = time * 0.25
         print(f"Bienvenido {name} al sistema de saldo")
-        print(f"El total de los 5 primeros minutos son {cash_min}, total a pagar es de {cash_min}")
+        print(f"El total de los {time} primeros minutos son {cash_min}, total a pagar es de {cash_min}")
 
 CheckTimeCall(time_call, name_user)

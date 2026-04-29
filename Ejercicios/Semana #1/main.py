@@ -2,14 +2,6 @@ bass = 3
 
 print(type(bass))
 
-a = "Isaac"
-f = "Vega"
-e = "19"
-c = "Guayaquil"
-i = "5"
-age = 1
-print("Mi nombre es" + a + "" + f + "tengo " + e + "años" + "Soy de la ciudad de " + c + "y somos " + i + "integrantes de mi familia")
-
 def Elderly(age):
     if age > 18 and age % 2 == 0: #Detecta si es mayor de edad y es divisible
         print("Is he/she of legal age and is divisible by two")

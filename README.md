@@ -1,11 +1,3 @@
-# 👋 Hola, soy Isaac
-
-🎓 Estudiante de Ingeniería en Software en UNEMI  
-💻 Aprendiendo Python, JavaScript y desarrollo web  
-🚀 Subiendo todos mis proyectos y prácticas  
-📚 Actualmente aprendiendo estructuras de datos y lógica de programación  
-
----
 
 # 🛠 Tecnologías
 

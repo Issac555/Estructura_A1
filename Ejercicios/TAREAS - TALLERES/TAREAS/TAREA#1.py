@@ -159,7 +159,7 @@ def MenuExercices():
                     user = input("Ingrese tu nombre de usuario: ")
                     password = input("Ingrese tu contraseña: ")
                     if user.isalpha():
-                        if user.lower() == user and password == password_db:
+                        if user.lower() == user_db and password == password_db:
                             print("Accedo permitido")
                             break
                         else:

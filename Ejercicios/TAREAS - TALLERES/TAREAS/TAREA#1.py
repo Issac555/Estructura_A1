@@ -154,16 +154,19 @@ def MenuExercices():
             case 13:
                 user_db = "isaac"
                 password_db = "python123"
-                user = input("Ingrese tu nombre de usuario: ")
-                password = input("Ingrese tu contraseña: ")
-                if user.isalpha():
-                    print(
-                        "Acceso concedido"
-                        if user.lower() == user_db and password == password_db
-                        else "Acceso denegado"
-                    )
-                else:
-                    print("Ingrese solo letras en el usuario")
+                contador = 0
+                while  contador < 3:
+                    user = input("Ingrese tu nombre de usuario: ")
+                    password = input("Ingrese tu contraseña: ")
+                    if user.isalpha():
+                        if user.lower() == user and password == password_db:
+                            print("Accedo permitido")
+                            break
+                        else:
+                            contador += 1
+                            print(f"Accedo denegado ({contador}/3)")
+                    else:
+                        print("Ingrese solo letras en el usuario")
             case 14:
                 year = input("Ingresa tu año de nacimiento:")
                 if ValidNumber(year):

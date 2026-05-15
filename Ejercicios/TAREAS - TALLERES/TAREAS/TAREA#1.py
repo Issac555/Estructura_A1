@@ -140,6 +140,18 @@ def MenuExercices():
                 else:
                     print("Ingrese números enteros")
             case 12:
+                edad = input("Ingrese tu edad actual: ")
+                if edad.isdigit():
+                    edad = int(edad)
+                    if edad <= 12:
+                        print(f"Tu edad actual es, {edad}, eres un niño ")
+                    elif edad > 13 < 18:
+                        print(f"Tu edad actual es, {edad}, eres un Joven ")
+                    else:
+                        print(f"Eres un adulto, tiene la edad actual de {edad} ")
+                else:
+                    print("Ingrese un número válido")
+            case 13:
                 user_db = "isaac"
                 password_db = "python123"
                 user = input("Ingrese tu nombre de usuario: ")
@@ -152,6 +164,16 @@ def MenuExercices():
                     )
                 else:
                     print("Ingrese solo letras en el usuario")
+            case 14:
+                year = input("Ingresa tu año de nacimiento:")
+                if ValidNumber(year):
+                    year = int(year)
+                    if year % 400 == 0 or year % 100 != 0 and year % 4 == 0:
+                        print(f"El año si es bisiesto ({year})")
+                    else:
+                        print(f"El año no es bisiesto({year}")
+                else:
+                    print("Ingrese numeros enteros")
             case _:
                 print("Opción inválida")
 

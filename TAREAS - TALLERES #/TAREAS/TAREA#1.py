@@ -1,6 +1,5 @@
 import datetime
 from CALCULADORA import SistemaCalculadora
-
 def MenuExercices():
     print("========== MENÚ ==========")
     print("Enunciados de ejercicios planteados utilizando Python\n")

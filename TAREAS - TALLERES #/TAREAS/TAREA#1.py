@@ -1,53 +1,6 @@
 import datetime
 from CALCULADORA import SistemaCalculadora
 
-def ValidNumber(number):
-    return number.lstrip("-").isdigit()
-
-def ResultadoNotas(nota):
-    if nota < 0 or nota > 10:
-        return "La nota debe estar entre 0 y 10"
-    if nota >= 9:
-        return f"El estudiante tiene la nota de {nota} y el resultado es A (Excelente)"
-    elif nota >= 7:
-        return f"El estudiante tiene la nota de {nota} y el resultado es B (Bueno)"
-    elif nota >= 5:
-        return f"El estudiante tiene la nota de {nota} y el resultado es C (Regular)"
-    else:
-        return f"El estudiante tiene la nota de {nota} y el resultado es D (Reprobado)"
-    
-def ValidAcces(user_db, password_db):
-    
-    user = input("Ingresa el usuario: ")
-    password = input("Ingresa la contraseña: ")
-    return (
-        "Acceso permitido"
-        if user.lower() == user_db and password == password_db
-        else f"Acceso no permitido"
-    )
-
-def Factorial(n):
-    return 1 if n == 1 else n * Factorial(n - 1)
-
-def AdivinarNumero(adivinar, numero, contador):
-    if adivinar == numero:
-        return f"Felicidades encontraste el numero {adivinar}", contador
-    elif numero > adivinar:
-        contador += 1
-        return f"Estás cerca, te pasaste un poco {numero}", contador
-    else:
-        contador += 1
-        return f"Estás lejos, un poco más adelante quizás {numero}", contador
-    
-def CalcularPromedio(notas):
-    return sum(notas) / len(notas)
-
-def EsPrimo(numero):
-    if numero % 2 == 0:
-        return f"Es primo ({numero})"
-    else: 
-        return f"No es primo ({numero})"    
-
 def MenuExercices():
     print("========== MENÚ ==========")
     print("Enunciados de ejercicios planteados utilizando Python\n")
@@ -387,3 +340,50 @@ def MenuExercices():
 
 MenuExercices() ## Iniciamos el programa
 
+
+def ValidNumber(number):
+    return number.lstrip("-").isdigit()
+
+def ResultadoNotas(nota):
+    if nota < 0 or nota > 10:
+        return "La nota debe estar entre 0 y 10"
+    if nota >= 9:
+        return f"El estudiante tiene la nota de {nota} y el resultado es A (Excelente)"
+    elif nota >= 7:
+        return f"El estudiante tiene la nota de {nota} y el resultado es B (Bueno)"
+    elif nota >= 5:
+        return f"El estudiante tiene la nota de {nota} y el resultado es C (Regular)"
+    else:
+        return f"El estudiante tiene la nota de {nota} y el resultado es D (Reprobado)"
+    
+def ValidAcces(user_db, password_db):
+    
+    user = input("Ingresa el usuario: ")
+    password = input("Ingresa la contraseña: ")
+    return (
+        "Acceso permitido"
+        if user.lower() == user_db and password == password_db
+        else f"Acceso no permitido"
+    )
+
+def Factorial(n):
+    return 1 if n == 1 else n * Factorial(n - 1)
+
+def AdivinarNumero(adivinar, numero, contador):
+    if adivinar == numero:
+        return f"Felicidades encontraste el numero {adivinar}", contador
+    elif numero > adivinar:
+        contador += 1
+        return f"Estás cerca, te pasaste un poco {numero}", contador
+    else:
+        contador += 1
+        return f"Estás lejos, un poco más adelante quizás {numero}", contador
+    
+def CalcularPromedio(notas):
+    return sum(notas) / len(notas)
+
+def EsPrimo(numero):
+    if numero % 2 == 0:
+        return f"Es primo ({numero})"
+    else: 
+        return f"No es primo ({numero})"    

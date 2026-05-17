@@ -84,22 +84,20 @@ def MenuExercices():
                     print("Ingrese números enteros")
             case 8:
                 notas = []
-
                 for i in range(3):
                     nota = input(f"Ingrese la nota {i + 1}: ")
                     if ValidNumber(nota):
                         notas.append(int(nota))
+                        if len(notas) == 3:
+                            promedio = sum(notas) / len(notas)
+                            print(f"Las notas son {notas}")
+                            print(f"El promedio es {promedio}")
                     else:
                         print("Ingrese números enteros")
-                if len(notas) == 3:
-                    promedio = sum(notas) / len(notas)
-                    print(f"Las notas son {notas}")
-                    print(f"El promedio es {promedio}")
             case 9:
                 num1 = input("Ingrese un numero: ")
                 if ValidNumber(num1):
                     num1 = int(num1)
-
                     if num1 % 2 == 0:
                         print(f"{num1} es par")
                     else:
@@ -155,7 +153,7 @@ def MenuExercices():
                 user_db = "isaac"
                 password_db = "python123"
                 contador = 0
-                while  contador < 3:
+                while contador < 3:
                     user = input("Ingrese tu nombre de usuario: ")
                     password = input("Ingrese tu contraseña: ")
                     if user.isalpha():

@@ -1,7 +1,8 @@
 import datetime
+from CALCULADORA import SistemaCalculadora
 
 def ValidNumber(number):
-    return number.isdigit()
+    return number.lstrip("-").isdigit()
 
 def ResultadoNotas(nota):
     if nota < 0 or nota > 10:
@@ -14,16 +15,74 @@ def ResultadoNotas(nota):
         return f"El estudiante tiene la nota de {nota} y el resultado es C (Regular)"
     else:
         return f"El estudiante tiene la nota de {nota} y el resultado es D (Reprobado)"
+    
+def ValidAcces(user_db, password_db):
+    
+    user = input("Ingresa el usuario: ")
+    password = input("Ingresa la contraseña: ")
+    return (
+        "Acceso permitido"
+        if user.lower() == user_db and password == password_db
+        else f"Acceso no permitido"
+    )
+
+def Factorial(n):
+    return 1 if n == 1 else n * Factorial(n - 1)
+
+def AdivinarNumero(adivinar, numero, contador):
+    if adivinar == numero:
+        return f"Felicidades encontraste el numero {adivinar}", contador
+    elif numero > adivinar:
+        contador += 1
+        return f"Estás cerca, te pasaste un poco {numero}", contador
+    else:
+        contador += 1
+        return f"Estás lejos, un poco más adelante quizás {numero}", contador
+    
+def CalcularPromedio(notas):
+    return sum(notas) / len(notas)
+
+def EsPrimo(numero):
+    if numero % 2 == 0:
+        return f"Es primo ({numero})"
+    else: 
+        return f"No es primo ({numero})"    
 
 def MenuExercices():
-    print("===== MENÚ =====")
-    print("1. Saludo")
-    print("2. Suma")
-    print("3. Doble y Triple")
-    print("4. Área Rectángulo")
-    print("5. Celsius a Fahrenheit")
-    print("6. Mayor de edad")
-    print("7. Número mayor")
+    print("========== MENÚ ==========")
+    print("Enunciados de ejercicios planteados utilizando Python\n")
+
+    print("1. Solicitar el nombre del usuario y mostrar un saludo.")
+    print("2. Pedir dos números y mostrar su suma.")
+    print("3. Pedir un número y mostrar su doble y triple.")
+    print("4. Solicitar los lados de un rectángulo y calcular su área.")
+    print("5. Convertir grados Celsius a Fahrenheit.")
+    print("6. Pedir edad y mostrar si es mayor de edad.")
+    print("7. Comparar dos números y mostrar cuál es mayor.")
+    print("8. Calcular el promedio de 3 notas.")
+    print("9. Determinar si un número es par o impar.")
+    print("10. Determinar si un número es positivo, negativo o cero.")
+
+    print("11. Calcular descuento según monto de compra.")
+    print("12. Validar edad y mostrar categoría.")
+    print("13. Validar usuario y contraseña.")
+    print("14. Presentar menú con opciones básicas.")
+    print("15. Validar si un año es bisiesto.")
+    print("16. Calcular el mayor de 3 números.")
+    print("17. Evaluar nota de estudiante.")
+    print("18. Usar operador ternario para validar acceso.")
+    print("19. Mostrar números del 1 al 10 con for.")
+    print("20. Sumar números hasta ingresar 0.")
+    print("21. Mostrar tabla de multiplicar.")
+
+    print("22. Contar números positivos en un arreglo.")
+    print("23. Juego de adivinar número.")
+    print("24. Crear función para calcular promedio.")
+    print("25. Función para determinar número primo.")
+    print("26. Función recursiva para factorial.")
+    print("27. Sistema completo de calculadora.")
+
+    print("==========================")
 
     menu = input("Ingrese la opcion del menu: ")
     if ValidNumber(menu):
@@ -96,7 +155,7 @@ def MenuExercices():
                     if ValidNumber(nota):
                         notas.append(int(nota))
                         if len(notas) == 3:
-                            promedio = sum(notas) / len(notas)
+                            promedio = CalcularPromedio(notas)                            
                             print(f"Las notas son {notas}")
                             print(f"El promedio es {promedio}")
                     else:
@@ -150,7 +209,7 @@ def MenuExercices():
                     edad = int(edad)
                     if edad <= 12:
                         print(f"Tu edad actual es, {edad}, eres un niño ")
-                    elif edad > 13 < 18:
+                    elif edad >= 13 and edad <= 17:                        
                         print(f"Tu edad actual es, {edad}, eres un Joven ")
                     else:
                         print(f"Eres un adulto, tiene la edad actual de {edad} ")
@@ -203,7 +262,7 @@ def MenuExercices():
                     if year % 400 == 0 or year % 100 != 0 and year % 4 == 0:
                         print(f"El año si es bisiesto ({year})")
                     else:
-                        print(f"El año no es bisiesto({year}")
+                        print(f"El año no es bisiesto({year})")
                 else:
                     print("Ingrese numeros enteros")
             case 16:
@@ -229,26 +288,102 @@ def MenuExercices():
                 else:
                     print("Ingrese solo números enteros")   
             case 18:
-                user_db = "isaac"
-                password_db = "python123"
-                contador = 0
-                while  contador < 3:
-                    user = input("Ingrese tu nombre de usuario: ")
-                    password = input("Ingrese tu contraseña: ")
-                    if user.isalpha():
-                        
-                        print(f" {if user.lower() == user_db and password == password_db:}
-                            print("Accedo permitido")
+                user_db = "Isaac"
+                password_db = "Chino2"
+                print(ValidAcces(user_db, password_db))
+            case 19:
+                for i in range(1, 11):
+                    print(i)
+            case 20:
+                suma = 0
+                while True:
+                    number = input("Ingresa números a sumar (0 para salir): ")
+                    if ValidNumber(number):
+                        number = int(number)
+                        if number == 0:
                             break
-                        else:
-                            contador += 1
-                            print(f"Accedo denegado ({contador}/3)")")
+                        suma += number
                     else:
-                        print("Ingrese solo letras en el usuario")
+                        print("Ingrese números válidos")
+                print(f"La suma total es {suma}")
+            case 21:
+                numero = input("Ingresa el numero para mostrar la tabla de multiplicar: ")
+                if ValidNumber(numero):
+                    numero = int(numero)
+                    for i in range(1, 13):
+                        print(f"{numero} * {i} = {numero * i}")
+                else:
+                    print("Ingrese solo números enteros")    
+            case 22:
+                arreglo = input("Ingresa un número, este será la longitud del arreglo: ")
+                if ValidNumber(arreglo):
+                    arreglo = int(arreglo)
+                    numeros = []
+                    positivos = 0
+                    for i in range(arreglo):
+                        numero = input(f"Ingrese el número {i + 1}: ")
+                        if numero.lstrip("-").isdigit():
+                            numero = int(numero)
+                            numeros.append(numero)
+                            if numero > 0:
+                              positivos += 1
+                        else:
+                            print("Ingrese números válidos")
+                    print(f"Arreglo: {numeros}")
+                    print(f"Cantidad de positivos: {positivos}")
+                else:
+                    print("Ingrese solo números enteros")
+            case 23:
+                cont = 0
+                adivinar = 999
+                while cont < 3:
+                    num = input(f"Ingresa el numero ({cont + 1}/3): ")
+                    if ValidNumber(num):
+                        num = int(num)
+                        resultado, cont = AdivinarNumero(
+                            adivinar,
+                            num,
+                            cont
+                        )
+                        print(resultado)
+                        if num == adivinar:
+                            break
+                    else:
+                        print("Ingrese solo números enteros")   
+            case 24:
+                notas = []
+                for i in range(3):
+                    nota = input(f"Ingrese la nota {i + 1}: ")
+                    if ValidNumber(nota):
+                        notas.append(int(nota))
+                    else:
+                        print("Ingrese números enteros")
+                if len(notas) == 3:
+                    promedio = CalcularPromedio(notas)
+                    print(f"Las notas son {notas}")
+                    print(f"El promedio es {promedio}")
+            case 25:
+                number = input("Ingresa un numero para ver si es primo: ")
+                if ValidNumber(number):
+                    number = int(number)
+                    resultado = EsPrimo(number)
+                    print(resultado)
+                else:
+                    print("Ingrese solo números enteros")
+            case 26:
+                number = input("Ingresa un factorial: ")
+                if ValidNumber(number):
+                    number = int(number)
+                    resultado = Factorial(number)
+                    print(resultado)
+                else:
+                    print("Ingrese solo números enteros")
+            case 27:
+                SistemaCalculadora()          
             case _:
                 print("Opción inválida")
-                    
     else:
         print("Ingrese solo números en el menú")
 
-MenuExercices()
+MenuExercices() ## Iniciamos el programa
+

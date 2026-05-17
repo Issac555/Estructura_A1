@@ -1,5 +1,19 @@
+import datetime
+
 def ValidNumber(number):
     return number.isdigit()
+
+def ResultadoNotas(nota):
+    if nota < 0 or nota > 10:
+        return "La nota debe estar entre 0 y 10"
+    if nota >= 9:
+        return f"El estudiante tiene la nota de {nota} y el resultado es A (Excelente)"
+    elif nota >= 7:
+        return f"El estudiante tiene la nota de {nota} y el resultado es B (Bueno)"
+    elif nota >= 5:
+        return f"El estudiante tiene la nota de {nota} y el resultado es C (Regular)"
+    else:
+        return f"El estudiante tiene la nota de {nota} y el resultado es D (Reprobado)"
 
 def MenuExercices():
     print("===== MENÚ =====")
@@ -12,12 +26,9 @@ def MenuExercices():
     print("7. Número mayor")
 
     menu = input("Ingrese la opcion del menu: ")
-
     if ValidNumber(menu):
         menu = int(menu)
-
         match menu:
-
             case 1:
                 name = input("Ingrese su nombre: ")
                 if name.isalpha():
@@ -33,7 +44,6 @@ def MenuExercices():
                     print("Ingrese números enteros")
             case 3:
                 num1 = input("Ingrese un numero: ")
-
                 if ValidNumber(num1):
                     num1 = int(num1)
                     print(f"El doble es {num1 * 2}")
@@ -49,7 +59,6 @@ def MenuExercices():
                     print("Ingrese números enteros")
             case 5:
                 cel = input("Ingrese grados Celsius: ")
-
                 if ValidNumber(cel):
                     cel = int(cel)
                     fahrenheit = (cel * 9/5) + 32
@@ -58,7 +67,6 @@ def MenuExercices():
                     print("Ingrese números enteros")
             case 6:
                 edad = input("Ingrese su edad: ")
-
                 if ValidNumber(edad):
                     edad = int(edad)
                     if edad >= 18:
@@ -70,7 +78,6 @@ def MenuExercices():
             case 7:
                 num1 = input("Ingrese el primer numero: ")
                 num2 = input("Ingrese el segundo numero: ")
-
                 if ValidNumber(num1) and ValidNumber(num2):
                     num1 = int(num1)
                     num2 = int(num2)
@@ -166,6 +173,30 @@ def MenuExercices():
                     else:
                         print("Ingrese solo letras en el usuario")
             case 14:
+                print("===== MENÚ =====")
+                print("1.SALUDAR")
+                print("2. MOSTRAR FECHA")
+                print("3. SALIR")
+                option = input("Selecciona una opción:")
+                if ValidNumber(option):
+                   option = int(option)
+                   match option:
+                    case 1:
+                        name = input("Ingrese su nombre: ")
+                        if name.isalpha():
+                          print(f"Hola {name}, bienvenido al programa")
+                        else:
+                            print("Ingrese solo letras en el nombre")
+                    case 2:
+                        fecha = datetime.datetime.now()
+                        print(f"La fecha actual es: {fecha}")
+                    case 3:
+                        print("Saliendo del programa.")
+                    case _:
+                         print("Opción inválida") 
+                else:
+                    print("Ingrese solo números en el menú")
+            case 15:
                 year = input("Ingresa tu año de nacimiento:")
                 if ValidNumber(year):
                     year = int(year)
@@ -175,9 +206,48 @@ def MenuExercices():
                         print(f"El año no es bisiesto({year}")
                 else:
                     print("Ingrese numeros enteros")
+            case 16:
+                nums = []
+                cont = 0
+                while cont < 3:
+                    num = input(f"Ingresa el numero({cont + 1}/3): ")
+                    if ValidNumber(num):
+                        nums.append(int(num))
+                        cont += 1
+                        if cont == 3:
+                            mayor = max(nums)
+                            print(f"Los números ingresados son: {nums}")
+                            print(f"El número mayor es: {mayor}")
+                    else:
+                        print("Ingrese solo números enteros")       
+            case 17:
+                nota = input("Ingresa las notas del estudiante: ")
+                if ValidNumber(nota):
+                    nota = int(nota)
+                    resultado = ResultadoNotas(nota)
+                    print(resultado)
+                else:
+                    print("Ingrese solo números enteros")   
+            case 18:
+                user_db = "isaac"
+                password_db = "python123"
+                contador = 0
+                while  contador < 3:
+                    user = input("Ingrese tu nombre de usuario: ")
+                    password = input("Ingrese tu contraseña: ")
+                    if user.isalpha():
+                        
+                        print(f" {if user.lower() == user_db and password == password_db:}
+                            print("Accedo permitido")
+                            break
+                        else:
+                            contador += 1
+                            print(f"Accedo denegado ({contador}/3)")")
+                    else:
+                        print("Ingrese solo letras en el usuario")
             case _:
                 print("Opción inválida")
-
+                    
     else:
         print("Ingrese solo números en el menú")
 

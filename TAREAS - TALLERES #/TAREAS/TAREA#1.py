@@ -1,9 +1,9 @@
 import datetime
 from CALCULADORA import SistemaCalculadora
+
 def MenuExercices():
     print("========== MENÚ ==========")
     print("Enunciados de ejercicios planteados utilizando Python\n")
-
     print("1. Solicitar el nombre del usuario y mostrar un saludo.")
     print("2. Pedir dos números y mostrar su suma.")
     print("3. Pedir un número y mostrar su doble y triple.")
@@ -26,7 +26,6 @@ def MenuExercices():
     print("19. Mostrar números del 1 al 10 con for.")
     print("20. Sumar números hasta ingresar 0.")
     print("21. Mostrar tabla de multiplicar.")
-
     print("22. Contar números positivos en un arreglo.")
     print("23. Juego de adivinar número.")
     print("24. Crear función para calcular promedio.")
@@ -35,7 +34,6 @@ def MenuExercices():
     print("27. Sistema completo de calculadora.")
 
     print("==========================")
-
     menu = input("Ingrese la opcion del menu: ")
     if ValidNumber(menu):
         menu = int(menu)
